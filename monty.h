@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 unsigned int line_number = 0;
-args_t *data = NULL;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -49,6 +49,8 @@ typedef struct args_s
     struct args_s *next;
 } args_t;
 
+args_t *data = NULL;
+
 int loop(FILE *);
 
-#endif 
+#endif
