@@ -41,7 +41,6 @@ void deleteArgs(args_t *head)
 	while (node != NULL)
 	{
 		next = node->next;
-		free(node->arg);
 		free(node);
 		node = next;
 	}
