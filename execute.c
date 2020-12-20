@@ -5,31 +5,25 @@
  * @head: List of arguments.
  * Return: The return value of the opcode executed.
  */
-int execute(args_t *head, int line_number)
+void execute(char *str_opcode, int line_number)
 {
 	int i;
 	stack_t *stack = NULL;
 	instruction_t op_arr[] = {
-		/*{"push", push},
+		/*{"push", push},*/
 		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},*/
-		{"add", add},
 		{NULL, NULL}};
 
 	for (i = 0; op_arr[i].opcode; i++)
 	{
-		if (strcmp(op_arr[i].opcode, head->arg) == 0)
+		if (strcmp(op_arr[i].opcode, str_opcode) == 0)
 			break;
 	}
 	if (op_arr[i].opcode != NULL)
 	{
 		op_arr[i].f(&stack, line_number);
-		return (0);
+		return;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, head->arg);
-	return (EXIT_FAILURE);
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, str_opcode);
+	exit(EXIT_FAILURE);
 }

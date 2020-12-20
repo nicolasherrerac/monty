@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
-/*char **str_num = NULL;*/
+extern char *str_num;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -49,9 +49,9 @@ typedef struct args_s
     struct args_s *next;
 } args_t;
 
-int loop(FILE *);
-int execute(args_t *head, int line_number);
-void deleteArgs(args_t *head);
-args_t *addArgs(args_t **head, char* arg);
+void loop(FILE *);
+void execute(char *str_opcode, int line_number);
+void push(stack_t **s_head, unsigned int line_number, char *str_num);
+void pall(stack_t **s_head, unsigned int line_number);
 
 #endif
