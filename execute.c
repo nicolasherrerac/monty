@@ -17,6 +17,7 @@ int execute(args_t *head, int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},*/
+		{"add", add},
 		{NULL, NULL}};
 
 	for (i = 0; op_arr[i].opcode; i++)
@@ -27,7 +28,8 @@ int execute(args_t *head, int line_number)
 	if (op_arr[i].opcode != NULL)
 	{
 		op_arr[i].f(&stack, line_number);
+		return (0);
 	}
-	fprintf(stderr, "L%d: unknown instruction %s", line_number, head->arg);
-	return (0);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, head->arg);
+	return (EXIT_FAILURE);
 }

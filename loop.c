@@ -22,7 +22,7 @@ int loop(FILE *input)
         cpy = strdup(line);
 	aux = cpy;
 
-        for (; (arg = strtok(cpy, " \t\n")); cpy = NULL, add(&arguments, arg))
+        for (; (arg = strtok(cpy, " \t\n")); cpy = NULL, addArgs(&arguments, arg))
             if(arg == NULL)
 	    break;
 

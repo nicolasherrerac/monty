@@ -52,6 +52,6 @@ typedef struct args_s
 int loop(FILE *);
 int execute(args_t *head, int line_number);
 void deleteArgs(args_t *head);
-args_t *add(args_t **head, char* arg);
+args_t *addArgs(args_t **head, char* arg);
 
 #endif
