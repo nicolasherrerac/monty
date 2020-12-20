@@ -5,8 +5,8 @@ int loop(FILE *input)
 
 	int read;
 	size_t len;
-	unsigned int line_number;
-	char *line = NULL, *cpy = NULL, *arg = NULL; *args = NULL;
+	unsigned int line_number = 0;
+	char *line = NULL, *cpy = NULL, *arg = NULL, *args = NULL;
 	args_t *arguments = NULL;
 	int status;
 
@@ -22,11 +22,11 @@ int loop(FILE *input)
 
         cpy = strdup(line);
 
-        for (; (arg = strtok(cpy, " \t\n")); cpy = NULL, add(&arguments, arg)) 
+        for (; (arg = strtok(cpy, " \t\n")); cpy = NULL, add(&arguments, arg))
             if(arg == NULL)
                 break;
         /* execute */
-	status = execute(arguments);
+	status = execute(arguments, line_number);
         /* clean */
 
         deleteArgs(arguments),free(line), free(args), free(cpy);

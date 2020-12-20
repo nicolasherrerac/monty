@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
-unsigned int line_number = 0;
+/*char **str_num = NULL;*/
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -49,8 +49,9 @@ typedef struct args_s
     struct args_s *next;
 } args_t;
 
-args_t *data = NULL;
-
 int loop(FILE *);
+int execute(args_t *head, int line_number);
+void deleteArgs(args_t *head);
+args_t *add(args_t **head, char* arg);
 
 #endif

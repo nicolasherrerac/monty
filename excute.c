@@ -5,7 +5,7 @@
  * @head: List of arguments.
  * Return: The return value of the opcode executed.
  */
-int execute(args_t *head)
+int execute(args_t *head, int line_number)
 {
 	int i;
 	stack_t *stack = NULL;

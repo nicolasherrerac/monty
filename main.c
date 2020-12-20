@@ -1,8 +1,8 @@
 #include "monty.h"
 
-int main(int argc, char *argv)
+int main(int argc, char **argv)
 {
-	FILE *input;
+	FILE *input = NULL;
 	int status;
 
 	if (argc != 2)
@@ -14,7 +14,7 @@ int main(int argc, char *argv)
 	input = fopen(argv[1], "r");
 	if (input == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		return(EXIT_FAILURE);
 	}
 	status = loop(input);
