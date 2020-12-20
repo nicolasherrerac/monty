@@ -1,10 +1,5 @@
 #include "monty.h"
-/**
- * @brief 
- * 
- * @param s_head 
- * @param line_number 
- */
+
 void push(stack_t **s_head, int line_number)
 {
 	stack_t *new = NULL;
@@ -32,12 +27,7 @@ void push(stack_t **s_head, int line_number)
 
 	*s_head = new;
 }
-/**
- * 
- * 
- * @param s_head 
- * @param line_number 
- */
+
 void pall(stack_t **s_head, int line_number)
 {
 	int i;
