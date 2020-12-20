@@ -1,6 +1,6 @@
 #include "monty.h"
 
-args_t *add(args_t **head, char* arg)
+args_t *addArgs(args_t **head, char* arg)
 {
 	args_t *node,  *aux;
 
