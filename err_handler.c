@@ -5,42 +5,19 @@
  * to the error number.
  * @n_error: Error number.
  */
-void prt_error(int n_error, unsigned int line_number)
+void prt_error(int n_error)
 {
 	/*Get message*/
-	switch (n_error)
-	{
-	case -1:
+	if (n_error == -1)
 		fprintf(stderr, "Error: malloc failed\n");
-		_free();
-		break;
-	case -2:
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		_free();
-		break;
-	case -3:
-                fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-                free(gb.line);
-                break;
-	case -4:
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
-		free(gb.line);
-		break;
-	case -5:
-                fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
-                _free();
-                break;
-	case -6:
-                fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
-                _free();
-                break;
-	}
+	else if (n_error == -2)
+		fprintf(stderr, "L%u: usage: push integer\n", gb.ln);
+	else if (n_error == -3)
+		fprintf(stderr, "L%u: can't %s an empty stack\n", gb.ln, gb.opcode);
+        else if (n_error == -4)
+                fprintf(stderr, "L%u: can't %s, stack too short\n", gb.ln, gb.opcode);
 
-	/*Print error message*/
-	//prt_stde(msg_err);
-
-	/*if (msg_err)
-	  free(msg_err);*/
+	_free();
 	fclose(gb.input);
 	exit(EXIT_FAILURE);
 }

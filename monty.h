@@ -85,7 +85,7 @@ void mod(stack_t **s_head, unsigned int line_number);
 /* Helpers*/
 int isnum(char *str_num);
 void free_stack(stack_t *s_head);
-void prt_error(int n_error, unsigned int line_number);
+void prt_error(int n_error);
 void _free(void);
 
 #endif

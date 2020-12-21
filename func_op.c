@@ -28,17 +28,14 @@ void push(stack_t **s_head, unsigned int line_number, char *str_num)
 	int num;
 
 	if (isnum(str_num) == 0)
-		prt_error(-2, line_number);
+		prt_error(-2);
 
 	num = atoi(str_num);
 
 	/*Create new node*/
 	new = malloc(sizeof(stack_t));
 	if (!new)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+		prt_error(-1);
 
 	new->n = num;
 	new->prev = NULL;

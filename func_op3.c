@@ -13,10 +13,7 @@ void add(stack_t **s_head, unsigned int line_number)
 		return;
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		prt_error(-4);
 
 	(*s_head)->next->n += (*s_head)->n;
 	temp = *s_head;
@@ -24,6 +21,7 @@ void add(stack_t **s_head, unsigned int line_number)
 	(*s_head)->prev = NULL;
 	free(temp);
 }
+
 /**
  * sub - subtracts the top element of the stack
  * from the second top element of the stack.
@@ -38,10 +36,7 @@ void sub(stack_t **s_head, unsigned int line_number)
 		return;
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		prt_error(-4);
 
 	(*s_head)->next->n -= (*s_head)->n;
 	temp = *s_head;
@@ -63,10 +58,7 @@ void m_div(stack_t **s_head, unsigned int line_number)
 		return;
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		prt_error(-4);
 
 	(*s_head)->next->n /= (*s_head)->n;
 	temp = *s_head;
@@ -88,10 +80,7 @@ void mul(stack_t **s_head, unsigned int line_number)
 		return;
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		prt_error(-4);
 
 	(*s_head)->next->n *= (*s_head)->n;
 	temp = *s_head;
@@ -99,6 +88,7 @@ void mul(stack_t **s_head, unsigned int line_number)
 	(*s_head)->prev = NULL;
 	free(temp);
 }
+
 /**
  * mod - computes the rest of the division of the
  * second top element of the stack by the top element of the stack.
@@ -113,10 +103,7 @@ void mod(stack_t **s_head, unsigned int line_number)
 		return;
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		prt_error(-4);
 
 	(*s_head)->next->n %= (*s_head)->n;
 	temp = *s_head;
