@@ -14,12 +14,12 @@ void prt_error(int n_error)
 		fprintf(stderr, "L%u: usage: push integer\n", gb.ln);
 	else if (n_error == -3)
 		fprintf(stderr, "L%u: can't %s an empty stack\n", gb.ln, gb.opcode);
-        else if (n_error == -4)
-                fprintf(stderr, "L%u: can't %s, stack too short\n", gb.ln, gb.opcode);
+	else if (n_error == -4)
+		fprintf(stderr, "L%u: can't %s, stack too short\n", gb.ln, gb.opcode);
 	else if (n_error == -5)
-                fprintf(stderr, "L%u: can't pchar, can't pchar, stack empty\n", gb.ln);
+		fprintf(stderr, "L%u: can't pchar, can't pchar, stack empty\n", gb.ln);
 	else if (n_error == -6)
-                fprintf(stderr, "L%u: can't pchar, value out of range\n", gb.ln);
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", gb.ln);
 
 	_free();
 	fclose(gb.input);

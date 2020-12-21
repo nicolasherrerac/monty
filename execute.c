@@ -2,7 +2,6 @@
 
 /**
  * execute - Execute a opcode.
- * @head: List of arguments.
  * Return: The return value of the opcode executed.
  */
 void execute(void)
