@@ -17,7 +17,7 @@ void prt_error(int n_error)
 	else if (n_error == -4)
 		fprintf(stderr, "L%u: can't %s, stack too short\n", gb.ln, gb.opcode);
 	else if (n_error == -5)
-		fprintf(stderr, "L%u: can't pchar, can't pchar, stack empty\n", gb.ln);
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", gb.ln);
 	else if (n_error == -6)
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", gb.ln);
 	else if (n_error == -31)
