@@ -28,10 +28,7 @@ void push(stack_t **s_head, unsigned int line_number, char *str_num)
 	int num;
 
 	if (isnum(str_num) == 0)
-	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		prt_error(-2, line_number);
 
 	num = atoi(str_num);
 

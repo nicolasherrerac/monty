@@ -5,7 +5,7 @@
  * @head: List of arguments.
  * Return: The return value of the opcode executed.
  */
-void execute(char *str_opcode, int line_number)
+void execute(void)
 {
 	int i;
 	instruction_t op_arr[] = {
@@ -13,19 +13,25 @@ void execute(char *str_opcode, int line_number)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
+		{"sub", sub},
+		{"div", m_div},
+		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}};
 
 	for (i = 0; op_arr[i].opcode; i++)
 	{
-		if (strcmp(op_arr[i].opcode, str_opcode) == 0)
+		if (strcmp(op_arr[i].opcode, gb.opcode) == 0)
 			break;
 	}
 	if (op_arr[i].opcode != NULL)
 	{
-		op_arr[i].f(&s_head, line_number);
+		op_arr[i].f(&(gb.s_head), gb.ln);
 		return;
 	}
-	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, str_opcode);
+	fprintf(stderr, "L%u: unknown instruction %s\n", gb.ln, gb.opcode);
 	_free();
+	fclose(gb.input);
 	exit(EXIT_FAILURE);
 }

@@ -6,8 +6,6 @@
 #include <unistd.h>
 #include <string.h>
 
-extern char *line;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -23,8 +21,6 @@ typedef struct stack_s
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
-
-extern stack_t *s_head;
 
 /**
  * struct instruction_s - opcode and its function
@@ -51,9 +47,28 @@ typedef struct args_s
     struct args_s *next;
 } args_t;
 
+/**
+ * struct globals_s - list of globals variables.
+ * @input: Monty file.
+ * @line: line of monty file.
+ * @ln: Line number of the file.
+ * @opcode: opcode of the line.
+ * @stak: Head of the stack.
+ */
+typedef struct globals_s
+{
+	FILE *input;
+	char *line;
+	char *opcode;
+	stack_t *s_head;
+	unsigned int ln;
+} globals_t;
+
+extern globals_t gb;
+
 /* Main helpers*/
-void loop(FILE *input);
-void execute(char *str_opcode, int line_number);
+void loop(void);
+void execute(void);
 
 /*Opcode*/
 void push(stack_t **s_head, unsigned int line_number, char *str_num);
@@ -61,9 +76,16 @@ void pall(stack_t **s_head, unsigned int line_number);
 void pint(stack_t **s_head, unsigned int line_number);
 void pop(stack_t **s_head, unsigned int line_number);
 void swap(stack_t **s_head, unsigned int line_number);
+void add(stack_t **s_head, unsigned int line_number);
+void sub(stack_t **s_head, unsigned int line_number);
+void m_div(stack_t **s_head, unsigned int line_number);
+void mul(stack_t **s_head, unsigned int line_number);
+void mod(stack_t **s_head, unsigned int line_number);
 
 /* Helpers*/
 int isnum(char *str_num);
 void free_stack(stack_t *s_head);
+void prt_error(int n_error, unsigned int line_number);
+void _free(void);
 
 #endif

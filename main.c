@@ -1,12 +1,14 @@
 #include "monty.h"
 
-stack_t *s_head;
+globals_t gb;
 
 int main(int argc, char **argv)
 {
-	FILE *input = NULL;
-
-	s_head = NULL;
+	gb.input = NULL;
+	gb.line = NULL;
+	gb.opcode = NULL;
+	gb.s_head = NULL;
+	gb.ln = 0;
 
 	if (argc != 2)
 	{
@@ -14,15 +16,15 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	input = fopen(argv[1], "r");
-	if (input == NULL)
+	gb.input = fopen(argv[1], "r");
+	if (gb.input == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	loop(input);
-	fclose(input);
+	loop();
+	fclose(gb.input);
 
 	return(EXIT_SUCCESS);
 }
