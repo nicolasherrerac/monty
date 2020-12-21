@@ -118,6 +118,9 @@ void mod(stack_t **s_head, unsigned int line_number)
 	if (*s_head == NULL || (*s_head)->next == NULL)
 		prt_error(-4);
 
+	if ((*s_head)->n == 0)
+		prt_error(-7);
+
 	(*s_head)->next->n %= (*s_head)->n;
 	temp = *s_head;
 	*s_head = (*s_head)->next;
