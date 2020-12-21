@@ -16,7 +16,7 @@ void pchar(stack_t **s_head, unsigned int line_number)
 	if ((*s_head)->n < 0 || (*s_head)->n > 127)
 		prt_error(-6);
 
-	dprintf(STDOUT_FILENO, "%c\n", (*s_head)->n);
+	printf("%c\n", (*s_head)->n);
 }
 
 /**
@@ -35,8 +35,8 @@ void pstr(stack_t **s_head, unsigned int line_number)
 	{
 		if (cp->n < 0 || cp->n > 127)
 			break;
-		dprintf(STDOUT_FILENO, "%c", cp->n);
+		printf("%c", cp->n);
 		cp = cp->next;
 	}
-	dprintf(STDOUT_FILENO, "\n");
+	printf("\n");
 }
