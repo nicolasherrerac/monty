@@ -34,6 +34,6 @@ void loop(FILE *input, stack_t *s_head)
 	free(line);
 	line = NULL;
     }while(1);
-
+	free_stack(s_head);
 	free(line);
 }

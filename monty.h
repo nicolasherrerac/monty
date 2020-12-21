@@ -54,5 +54,6 @@ void execute(char *str_opcode, int line_number, stack_t *s_head);
 void push(stack_t **s_head, unsigned int line_number, char *str_num);
 void pall(stack_t **s_head, unsigned int line_number);
 int isnum(char *str_num);
+void free_stack(stack_t *s_head);
 
 #endif
