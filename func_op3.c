@@ -1,4 +1,5 @@
-#include <monty.h>
+#include "monty.h"
+
 /**
  * add - adds the top two elements of the stack.
  * @s_head: First node.
@@ -13,8 +14,8 @@ void add(stack_t **s_head, unsigned int line_number)
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 
 	(*s_head)->next->n += (*s_head)->n;
@@ -38,8 +39,8 @@ void sub(stack_t **s_head, unsigned int line_number)
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 
 	(*s_head)->next->n -= (*s_head)->n;
@@ -54,7 +55,7 @@ void sub(stack_t **s_head, unsigned int line_number)
  * @s_head: First node.
  * @line_number: Currrent line number.
  */
-void div(stack_t **s_head, unsigned int line_number)
+void m_div(stack_t **s_head, unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -63,8 +64,8 @@ void div(stack_t **s_head, unsigned int line_number)
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 
 	(*s_head)->next->n /= (*s_head)->n;
@@ -88,8 +89,8 @@ void mul(stack_t **s_head, unsigned int line_number)
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 
 	(*s_head)->next->n *= (*s_head)->n;
@@ -113,8 +114,8 @@ void mod(stack_t **s_head, unsigned int line_number)
 
 	if (*s_head == NULL || (*s_head)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 
 	(*s_head)->next->n %= (*s_head)->n;
