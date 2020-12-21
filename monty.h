@@ -24,6 +24,8 @@ typedef struct stack_s
         struct stack_s *next;
 } stack_t;
 
+extern stack_t *s_head;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -49,10 +51,18 @@ typedef struct args_s
     struct args_s *next;
 } args_t;
 
-void loop(FILE *input, stack_t *s_head);
-void execute(char *str_opcode, int line_number, stack_t *s_head);
+/* Main helpers*/
+void loop(FILE *input);
+void execute(char *str_opcode, int line_number);
+
+/*Opcode*/
 void push(stack_t **s_head, unsigned int line_number, char *str_num);
 void pall(stack_t **s_head, unsigned int line_number);
+void pint(stack_t **s_head, unsigned int line_number);
+void pop(stack_t **s_head, unsigned int line_number);
+void swap(stack_t **s_head, unsigned int line_number);
+
+/* Helpers*/
 int isnum(char *str_num);
 void free_stack(stack_t *s_head);
 

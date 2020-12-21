@@ -5,12 +5,14 @@
  * @head: List of arguments.
  * Return: The return value of the opcode executed.
  */
-void execute(char *str_opcode, int line_number, stack_t *s_head)
+void execute(char *str_opcode, int line_number)
 {
 	int i;
 	instruction_t op_arr[] = {
-		/*{"push", push},*/
 		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}};
 
 	for (i = 0; op_arr[i].opcode; i++)
@@ -24,5 +26,6 @@ void execute(char *str_opcode, int line_number, stack_t *s_head)
 		return;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, str_opcode);
+	_free();
 	exit(EXIT_FAILURE);
 }
