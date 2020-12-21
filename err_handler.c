@@ -20,7 +20,8 @@ void prt_error(int n_error)
 		fprintf(stderr, "L%u: can't pchar, can't pchar, stack empty\n", gb.ln);
 	else if (n_error == -6)
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", gb.ln);
-
+	else if (n_error == -31)
+                fprintf(stderr, "L%u: can't %s, stack empty\n", gb.ln, gb.opcode);
 	_free();
 	fclose(gb.input);
 	exit(EXIT_FAILURE);
