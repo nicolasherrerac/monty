@@ -18,6 +18,8 @@ void execute(void)
 		{"div", m_div},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}};
 
 	for (i = 0; op_arr[i].opcode; i++)

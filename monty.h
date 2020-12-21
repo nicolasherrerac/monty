@@ -81,6 +81,8 @@ void sub(stack_t **s_head, unsigned int line_number);
 void m_div(stack_t **s_head, unsigned int line_number);
 void mul(stack_t **s_head, unsigned int line_number);
 void mod(stack_t **s_head, unsigned int line_number);
+void pstr(stack_t **s_head, unsigned int line_number);
+void pchar(stack_t **s_head, unsigned int line_number);
 
 /* Helpers*/
 int isnum(char *str_num);
