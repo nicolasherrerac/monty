@@ -22,6 +22,8 @@ void prt_error(int n_error)
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", gb.ln);
 	else if (n_error == -31)
                 fprintf(stderr, "L%u: can't %s, stack empty\n", gb.ln, gb.opcode);
+	else if (n_error == -7)
+                fprintf(stderr, "L%d: division by zero\n", gb.ln);
 	_free();
 	fclose(gb.input);
 	exit(EXIT_FAILURE);

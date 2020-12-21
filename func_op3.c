@@ -66,10 +66,8 @@ void m_div(stack_t **s_head, unsigned int line_number)
 		prt_error(-4);
 
 	if ((*s_head)->n == 0)
-	{
-		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		prt_error(-7);
+
 	(*s_head)->next->n /= (*s_head)->n;
 	temp = *s_head;
 	*s_head = (*s_head)->next;
