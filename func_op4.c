@@ -6,6 +6,7 @@
  */
 void pchar(stack_t **s_head, unsigned int line_number)
 {
+	(void)line_number;
 	if (s_head == NULL)
 		return;
 
@@ -16,7 +17,6 @@ void pchar(stack_t **s_head, unsigned int line_number)
 		prt_error(-6);
 
 	dprintf(STDOUT_FILENO, "%c\n", (*s_head)->n);
-	(void)line_number;
 }
 
 /**
@@ -27,7 +27,7 @@ void pchar(stack_t **s_head, unsigned int line_number)
 void pstr(stack_t **s_head, unsigned int line_number)
 {
 	stack_t *cp = *s_head;
-
+	(void)line_number;
 	if (s_head == NULL)
 		return;
 
@@ -39,6 +39,4 @@ void pstr(stack_t **s_head, unsigned int line_number)
 		cp = cp->next;
 	}
 	dprintf(STDOUT_FILENO, "\n");
-
-	(void)line_number;
 }
