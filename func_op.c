@@ -22,7 +22,7 @@ int isnum(char *str_num)
 	return (1);
 }
 
-void push(stack_t **s_head, unsigned int line_number, char *str_num)
+void push(stack_t **s_head, char *str_num)
 {
 	stack_t *new = NULL;
 	int num;
@@ -55,4 +55,6 @@ void pall(stack_t **s_head, unsigned int line_number)
 		printf("%d\n", node->n);
 		node = node->next;
 	}
+
+	(void)line_number;
 }

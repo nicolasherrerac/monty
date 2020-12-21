@@ -71,7 +71,7 @@ void loop(void);
 void execute(void);
 
 /*Opcode*/
-void push(stack_t **s_head, unsigned int line_number, char *str_num);
+void push(stack_t **s_head, char *str_num);
 void pall(stack_t **s_head, unsigned int line_number);
 void pint(stack_t **s_head, unsigned int line_number);
 void pop(stack_t **s_head, unsigned int line_number);

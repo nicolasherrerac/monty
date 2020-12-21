@@ -11,7 +11,6 @@ void loop(void)
 
 	int read;
 	size_t len;
-	unsigned int line_number = 0;
 	char *str_num = NULL;
 
 	do {
@@ -35,7 +34,7 @@ void loop(void)
 		continue;
 	}
 	else if (strcmp(gb.opcode, "push") == 0)
-		push(&(gb.s_head), gb.ln, str_num);
+		push(&(gb.s_head), str_num);
 	else
 		execute();
 

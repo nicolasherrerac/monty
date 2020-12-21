@@ -10,6 +10,8 @@ void pint(stack_t **s_head, unsigned int line_number)
 	if ((*s_head) == NULL)
 		prt_error(-3);
 	printf("%d\n", (*s_head)->n);
+
+	(void)line_number;
 }
 
 /**
@@ -29,6 +31,8 @@ void pop(stack_t **s_head, unsigned int line_number)
 	if (next)
 		next->prev = NULL;
 	*s_head = next;
+
+	(void)line_number;
 }
 
 /**
@@ -49,4 +53,6 @@ void swap(stack_t **s_head, unsigned int line_number)
 	temp->next = (*s_head);
 	temp->prev = NULL;
 	*s_head = temp;
+
+	(void)line_number;
 }

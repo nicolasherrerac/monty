@@ -20,6 +20,8 @@ void add(stack_t **s_head, unsigned int line_number)
 	*s_head = (*s_head)->next;
 	(*s_head)->prev = NULL;
 	free(temp);
+
+	(void)line_number;
 }
 
 /**
@@ -43,7 +45,10 @@ void sub(stack_t **s_head, unsigned int line_number)
 	*s_head = (*s_head)->next;
 	(*s_head)->prev = NULL;
 	free(temp);
+
+	(void)line_number;
 }
+
 /**
  * div -  divides the second top element of the
  * stack by the top element of the stack.
@@ -65,7 +70,10 @@ void m_div(stack_t **s_head, unsigned int line_number)
 	*s_head = (*s_head)->next;
 	(*s_head)->prev = NULL;
 	free(temp);
+
+	(void)line_number;
 }
+
 /**
  * mul - multiplies the second top element of the
  * stack with the top element of the stack.
@@ -87,6 +95,8 @@ void mul(stack_t **s_head, unsigned int line_number)
 	*s_head = (*s_head)->next;
 	(*s_head)->prev = NULL;
 	free(temp);
+
+	(void)line_number;
 }
 
 /**
@@ -110,4 +120,6 @@ void mod(stack_t **s_head, unsigned int line_number)
 	*s_head = (*s_head)->next;
 	(*s_head)->prev = NULL;
 	free(temp);
+
+	(void)line_number;
 }
