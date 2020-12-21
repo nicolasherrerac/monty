@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * isnum - Check if the string is a number
  * @str_num: String with a number
@@ -21,7 +20,11 @@ int isnum(char *str_num)
 	}
 	return (1);
 }
-
+/**
+ * push - pushes an element to the stack.
+ * @s_head: First node.
+ * @str_num: String with a number
+ */
 void push(stack_t **s_head, char *str_num)
 {
 	stack_t *new = NULL;
@@ -46,10 +49,16 @@ void push(stack_t **s_head, char *str_num)
 
 	*s_head = new;
 }
-
+/**
+ * pall - prints all the values on the stack
+ * starting from the top of the stack.
+ * @s_head: First node.
+ * @line_number: Currrent line number.
+ */
 void pall(stack_t **s_head, unsigned int line_number)
 {
 	stack_t *node = *s_head;
+
 	for (; node;)
 	{
 		printf("%d\n", node->n);

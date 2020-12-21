@@ -1,7 +1,12 @@
 #include "monty.h"
-
 globals_t gb;
 
+/**
+ * main - execute program monty.
+ * @argc: number of arguments.
+ * @argv: array of string arguments.
+ * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
+ */
 int main(int argc, char **argv)
 {
 	gb.input = NULL;
@@ -26,5 +31,5 @@ int main(int argc, char **argv)
 	loop();
 	fclose(gb.input);
 
-	return(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }

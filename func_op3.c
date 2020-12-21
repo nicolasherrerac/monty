@@ -50,7 +50,7 @@ void sub(stack_t **s_head, unsigned int line_number)
 }
 
 /**
- * div -  divides the second top element of the
+ * m_div -  divides the second top element of the
  * stack by the top element of the stack.
  * @s_head: First node.
  * @line_number: Currrent line number.
