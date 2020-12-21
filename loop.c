@@ -1,13 +1,12 @@
 #include "monty.h"
 
-void loop(FILE *input)
+void loop(FILE *input, stack_t *s_head)
 {
 
 	int read;
 	size_t len;
 	unsigned int line_number = 0;
 	char *line = NULL, *opcode = NULL, *str_num = NULL;
-	stack_t *stack = NULL;
 
 	do {
         /* read */
@@ -19,20 +18,16 @@ void loop(FILE *input)
         /* Parse */
         opcode = strtok(line, " \t\n");
 	str_num = strtok(NULL, " \t\n");
-	printf("num %s\n", str_num);
+
         /* execute */
-	if (strcmp(opcode, "push") == 0)
-	{
-		if (str_num)
-			push(&stack, line_number, str_num);
-		else
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-	}
+	if (!opcode)
+		continue;
+	else if (*opcode == '#' || strcmp(opcode, "nop") == 0)
+		continue;
+	else if (strcmp(opcode, "push") == 0)
+		push(&s_head, line_number, str_num);
 	else
-		execute(opcode, line_number);
+		execute(opcode, line_number, s_head);
 
         /* clean */
 

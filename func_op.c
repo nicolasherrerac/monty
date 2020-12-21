@@ -1,10 +1,40 @@
 #include "monty.h"
 
+/**
+ * isnum - Check if the string is a number
+ * @str_num: String with a number
+ * Return: 1 if is number digit if not return 0
+ */
+int isnum(char *str_num)
+{
+	char *letter = str_num;
+
+	if (str_num == NULL)
+		return (0);
+	if (*letter == '-')
+		letter++;
+
+	for (; *letter != '\0'; letter++)
+	{
+		if (*letter < '0' || *letter > '9')
+			return (0);
+	}
+	return (1);
+}
+
 void push(stack_t **s_head, unsigned int line_number, char *str_num)
 {
 	stack_t *new = NULL;
 	int num;
-	printf("Entra al push con %s\n", str_num);
+
+	if (isnum(str_num) == 0)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	num = atoi(str_num);
+
 	/*Create new node*/
 	new = malloc(sizeof(stack_t));
 	if (!new)
@@ -12,13 +42,6 @@ void push(stack_t **s_head, unsigned int line_number, char *str_num)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
-	/*if (!isnum(str_num))
-	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-		}*/
-	num = atoi(str_num);
 
 	new->n = num;
 	new->prev = NULL;
@@ -32,11 +55,10 @@ void push(stack_t **s_head, unsigned int line_number, char *str_num)
 
 void pall(stack_t **s_head, unsigned int line_number)
 {
-	stack_t *nodo = *s_head;
-	printf("Entra al pall\n");
-	for (; nodo;)
+	stack_t *node = *s_head;
+	for (; node;)
 	{
-		printf("%d\n", nodo->n);
-		nodo = nodo->next;
+		printf("%d\n", node->n);
+		node = node->next;
 	}
 }
