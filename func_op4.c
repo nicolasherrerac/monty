@@ -28,6 +28,9 @@ void pstr(stack_t **s_head, unsigned int line_number)
 {
 	stack_t *cp = *s_head;
 
+	if (s_head == NULL)
+		return;
+
 	while (cp != NULL && cp->n != 0)
 	{
 		if (cp->n < 0 || cp->n > 127)
