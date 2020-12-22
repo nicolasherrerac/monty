@@ -110,6 +110,7 @@ $ ./monty example.m
 1
 ```
 
+The opcode sub subtracts the top element of the stack from the second top element of the stack.
 
 ```
 $ cat sub.m 
@@ -136,5 +137,5 @@ $ ./monty sub.m
 ## Flowcharts
 
 
-![flowchard loop](https://dochub.com/2283-b66vf4/Xv7zYW5Rn2E3AxzR2A9egx/flowchart-loop-jpg)
-![flowchard main](https://dochub.com/2283-b66vf4/1XEpyxzwNG6qz0bRQZGd38/flowchart-main-jpg)
+![flowchard main](https://drive.google.com/file/d/1RYmu66x-iBuq0JY52JeYUcEqqJBdphP_/view?usp=sharing)
+![flowchard loop](https://drive.google.com/file/d/12_s74gn8wOrXuMfUFOFPiragk7kbagth/view?usp=sharing)
