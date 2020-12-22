@@ -51,9 +51,10 @@ typedef struct args_s
  * struct globals_s - list of globals variables.
  * @input: Monty file.
  * @line: line of monty file.
- * @ln: Line number of the file.
  * @opcode: opcode of the line.
  * @s_head: Head of the stack.
+ * @isqueue: Boolean value - 1 if is queue - 0 if is stack
+ * @ln: Line number of the file.
  */
 typedef struct globals_s
 {
@@ -61,6 +62,7 @@ typedef struct globals_s
 	char *line;
 	char *opcode;
 	stack_t *s_head;
+	int isqueue;
 	unsigned int ln;
 } globals_t;
 
@@ -84,6 +86,8 @@ void mod(stack_t **s_head, unsigned int line_number);
 void pstr(stack_t **s_head, unsigned int line_number);
 void pchar(stack_t **s_head, unsigned int line_number);
 void rotl(stack_t **s_head, unsigned int line_number);
+void rotr(stack_t **s_head, unsigned int line_number);
+void push_end(stack_t **s_head, char *str_num);
 
 /* Helpers*/
 int isnum(char *str_num);

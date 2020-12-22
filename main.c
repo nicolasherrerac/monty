@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 	gb.line = NULL;
 	gb.opcode = NULL;
 	gb.s_head = NULL;
+	gb.isqueue = 0;
 	gb.ln = 0;
 
 	if (argc != 2)
