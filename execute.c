@@ -20,6 +20,7 @@ void execute(void)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}};
 
 	for (i = 0; op_arr[i].opcode; i++)
